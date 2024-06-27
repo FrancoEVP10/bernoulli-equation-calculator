@@ -102,7 +102,7 @@ button:hover {
     text-align: center;
 }
 
-#myChart {
+.container2 {
     display: none; /* Oculta el canvas inicialmente */
 }
 
