@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bernoulli Equation</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="order">
+      <div class="container">
+        <h1>Bernoulli Equation Calculator</h1>
+        <div class="equation">
+          <p>
+            p +
+            <span class="fraction"
+              ><span class="numerator">1</span
+              ><span class="denominator">2</span></span
+            >*&rho;*v<sup>2</sup> + &rho;*g*h = constante
+          </p>
+        </div>
+        <div class="dropdown">
+          <label for="repeatCount">Seleccione el número de repeticiones:</label>
+          <select id="repeatCount">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+        <div id="equationContainer"></div>
+        <button type="submit" id="calculateButton">Calcular</button>
+        <div id="result"></div>
+      </div>
+      <div class="container">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+
+    <script src="js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </body>
+</html>
