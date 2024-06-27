@@ -116,11 +116,6 @@ document.addEventListener('DOMContentLoaded', function() {
             constants.forEach((constant, index) => {
                 resultSpans[index].textContent = constant.toFixed(2);
             });
-
-            // Mostrar el canvas después de calcular
-            const chartContainer = document.getElementById('container2').parentNode;
-            chartContainer.style.display = 'block'; // Muestra el contenedor del canvas
-
             // Actualizar el gráfico con los nuevos resultados
             updateChart(constants);
         })
