@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
         data.push({ pressure: p, density: rho, velocity: v, height: y });
       }
 
-      fetch("https://back-calculator-r0mm.onrender.com/calculate", {
+      fetch("https://api-calculator.azurewebsites.net/calculate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
