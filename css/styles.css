@@ -65,8 +65,7 @@ h1 {
 }
 
 /* Numerador y denominador de la fracción */
-.numerator,
-.denominator {
+.numerator {
     display: block;
     border-bottom: 1px solid #000;
 }
