@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             // Mostrar el canvas después de calcular
-            const chartContainer = document.getElementsByClassName('container2').parentNode;
+            const chartContainer = document.getElementById('container2').parentNode;
             chartContainer.style.display = 'block'; // Muestra el contenedor del canvas
 
             // Actualizar el gráfico con los nuevos resultados
