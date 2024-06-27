@@ -84,47 +84,52 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   if (calculateButton) {
-      calculateButton.addEventListener('click', function(event) {
-          event.preventDefault();
-          const pressures = document.querySelectorAll('.pressure');
-          const densities = document.querySelectorAll('.density');
-          const velocities = document.querySelectorAll('.velocity');
-          const heights = document.querySelectorAll('.height');
+    calculateButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        const pressures = document.querySelectorAll('.pressure');
+        const densities = document.querySelectorAll('.density');
+        const velocities = document.querySelectorAll('.velocity');
+        const heights = document.querySelectorAll('.height');
 
-          const data = [];
-          for (let i = 0; i < pressures.length; i++) {
-              const p = parseFloat(pressures[i].value);
-              const rho = parseFloat(densities[i].value);
-              const v = parseFloat(velocities[i].value);
-              const y = parseFloat(heights[i].value);
+        const data = [];
+        for (let i = 0; i < pressures.length; i++) {
+            const p = parseFloat(pressures[i].value);
+            const rho = parseFloat(densities[i].value);
+            const v = parseFloat(velocities[i].value);
+            const y = parseFloat(heights[i].value);
 
-              data.push({ pressure: p, density: rho, velocity: v, height: y });
-          }
+            data.push({ pressure: p, density: rho, velocity: v, height: y });
+        }
 
-          fetch('https://back-calculator-r0mm.onrender.com/calculate', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({ data: data })
-          })
-          .then(response => response.json())
-          .then(data => {
-              const constants = data.constants;
-              const resultSpans = document.querySelectorAll('.result');
-              
-              constants.forEach((constant, index) => {
-                  resultSpans[index].textContent = constant.toFixed(2);
-              });
+        fetch('https://back-calculator-r0mm.onrender.com/calculate/calculate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ data: data })
+        })
+        .then(response => response.json())
+        .then(data => {
+            const constants = data.constants;
+            const resultSpans = document.querySelectorAll('.result');
+            
+            constants.forEach((constant, index) => {
+                resultSpans[index].textContent = constant.toFixed(2);
+            });
 
-              // Actualizar el gráfico con los nuevos resultados
-              updateChart(constants);
-          })
-          .catch(error => {
-              console.error('Error:', error);
-          });
-      });
-  }
+            // Mostrar el canvas después de calcular
+            const chartContainer = document.getElementById('myChart').parentNode;
+            chartContainer.style.display = 'block'; // Muestra el contenedor del canvas
+
+            // Actualizar el gráfico con los nuevos resultados
+            updateChart(constants);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+}
+
 
   // Initialize with default value
   if (repeatCount) {

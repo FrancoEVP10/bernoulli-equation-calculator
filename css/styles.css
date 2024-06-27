@@ -102,6 +102,10 @@ button:hover {
     text-align: center;
 }
 
+#myChart {
+    display: none; /* Oculta el canvas inicialmente */
+}
+
 
 /* Añadir este código al final de tu archivo styles.css */
 
